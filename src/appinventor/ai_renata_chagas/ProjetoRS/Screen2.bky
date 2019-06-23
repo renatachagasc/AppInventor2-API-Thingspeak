@@ -1,0 +1,625 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="global_declaration" id="=q7#Oik^943,SNZg8%uq" x="-1684" y="-137">
+    <field name="NAME">lista</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="mf#:$R@1l_JJPVXr#Q;/">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="^A|7-u_?B#fa@Zrmd-,l" x="-1683" y="-100">
+    <mutation component_type="Button" is_generic="false" instance_name="BntBuscarConexao" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">BntBuscarConexao</field>
+    <statement name="DO">
+      <block type="component_set_get" id="axsQtJgC[VOl+Vebh7`p">
+        <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="Web1"></mutation>
+        <field name="COMPONENT_SELECTOR">Web1</field>
+        <field name="PROP">Url</field>
+        <value name="VALUE">
+          <block type="text" id="E.I%97d[Vb+Uqiro$3=x">
+            <field name="TEXT">https://api.thingspeak.com/channels/789271/feeds.json?results=2</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="Vn*5sK@El(=x6+=$r14f">
+            <mutation component_type="Web" method_name="Get" is_generic="false" instance_name="Web1"></mutation>
+            <field name="COMPONENT_SELECTOR">Web1</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="_Z,c|.9-c#^]3lyD:V@9" x="-1683" y="38">
+    <mutation component_type="Web" is_generic="false" instance_name="Web1" event_name="GotText"></mutation>
+    <field name="COMPONENT_SELECTOR">Web1</field>
+    <statement name="DO">
+      <block type="controls_if" id="Z[{UoLH_sCEik0s85FFn">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="(+4aNUE~#EfFDFwi2c4C">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="e6GW9mpv(Y|XuAOcUjVQ">
+                <mutation>
+                  <eventparam name="responseCode"></eventparam>
+                </mutation>
+                <field name="VAR">responseCode</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="+(6I_f{W/`C,XI0PHilr">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="lexical_variable_set" id="aLWS%60LelK8R+Wz{-!t">
+            <field name="VAR">global lista</field>
+            <value name="VALUE">
+              <block type="component_method" id="]7AXns(yPSz[.AImzkXM">
+                <mutation component_type="Web" method_name="JsonTextDecode" is_generic="false" instance_name="Web1"></mutation>
+                <field name="COMPONENT_SELECTOR">Web1</field>
+                <value name="ARG0">
+                  <block type="lexical_variable_get" id="re#(3itA)7y/|)1=jdr^">
+                    <mutation>
+                      <eventparam name="responseContent"></eventparam>
+                    </mutation>
+                    <field name="VAR">responseContent</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="FRf!e+D5)0-s7Nj4R!P8">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_Nome"></mutation>
+                <field name="COMPONENT_SELECTOR">Lbl_Nome</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="lists_select_item" id="}UGvf_a{c6bSEN~q9C.Z">
+                    <value name="LIST">
+                      <block type="lists_select_item" id="R!D-h~fV2yn]j)t#M?|F">
+                        <value name="LIST">
+                          <block type="lists_select_item" id=")FtuJTsg1bEM.b`YX(Kw">
+                            <value name="LIST">
+                              <block type="lists_select_item" id="qV]]gV](PI^dF1(B8y*:">
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id="jl.YHt^~p]iH=$gcL}eW">
+                                    <field name="VAR">global lista</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="OdF=u^?}RUE#)tPq}V:W">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="math_number" id="U@}kNK{S4pmthgJ{?jng">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="math_number" id="LDx(9N/G5BLI~X.wfoi6">
+                            <field name="NUM">7</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="NUM">
+                      <block type="math_number" id="Vt7C]y9v1EGbH,EBve=F">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="GaYiMjidnw#)DA9{Q-Tb">
+                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_ID"></mutation>
+                    <field name="COMPONENT_SELECTOR">Lbl_ID</field>
+                    <field name="PROP">Text</field>
+                    <value name="VALUE">
+                      <block type="lists_select_item" id="]Q_YtNc~wKBUo#l@h6Eo">
+                        <value name="LIST">
+                          <block type="lists_select_item" id="v|mHA4#0|I^z:#1zmU-0">
+                            <value name="LIST">
+                              <block type="lists_select_item" id="ZbkHBGiQC+UL{_Iro?C)">
+                                <value name="LIST">
+                                  <block type="lists_select_item" id="p-M:]8D^!rVAs0x:ny.+">
+                                    <value name="LIST">
+                                      <block type="lexical_variable_get" id="W`.;T[K!m9@qj]eN}7NV">
+                                        <field name="VAR">global lista</field>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="math_number" id="vkNi64`$SwVt/a*g3eS!">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="(DQ,F4Qvh?f5]*[#q(_N">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="math_number" id="`hOhB-s)_mGV?P[;(!gr">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="math_number" id="M3V~l{V^c1RVG-~_jmYI">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="#8r}A!,5Sp$zBb8$_Ks?">
+                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_DataH_CRIADO"></mutation>
+                        <field name="COMPONENT_SELECTOR">Lbl_DataH_CRIADO</field>
+                        <field name="PROP">Text</field>
+                        <value name="VALUE">
+                          <block type="lists_select_item" id="{6KZoVKH|k|+x|stD=-q">
+                            <value name="LIST">
+                              <block type="lists_select_item" id="5rNSSo`$C1L0AGQT^`y{">
+                                <value name="LIST">
+                                  <block type="lists_select_item" id="FPOrjD6EDS^%sRnWPFOa">
+                                    <value name="LIST">
+                                      <block type="lists_select_item" id="?iNf5s~Iun1TKbkHxrQ0">
+                                        <value name="LIST">
+                                          <block type="lexical_variable_get" id="_T*|.,xKt.6bY~w3n_]H">
+                                            <field name="VAR">global lista</field>
+                                          </block>
+                                        </value>
+                                        <value name="NUM">
+                                          <block type="math_number" id="Wh?=}9#56^4EC]W=^:3-">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="math_number" id="f}C46Gm+[iv/}w!HvbWA">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id=")OYV;+7Q6?ZQ@]kN|S}.">
+                                    <field name="NUM">8</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="math_number" id="c5YFYUn9RYjDBaq|}?]:">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_set_get" id=";.F--Y3=_NYz@kY:~bIG">
+                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_DataH_ATUALIZADO"></mutation>
+                            <field name="COMPONENT_SELECTOR">Lbl_DataH_ATUALIZADO</field>
+                            <field name="PROP">Text</field>
+                            <value name="VALUE">
+                              <block type="lists_select_item" id="TGc?pVU`}x!x1wa2l%_!">
+                                <value name="LIST">
+                                  <block type="lists_select_item" id="=NG`LZ-QOdzWb+paTiGD">
+                                    <value name="LIST">
+                                      <block type="lists_select_item" id="dQFu0S_hzoA7EmEd![u.">
+                                        <value name="LIST">
+                                          <block type="lists_select_item" id="4eNbxN-MO0e;(4dK,xyy">
+                                            <value name="LIST">
+                                              <block type="lexical_variable_get" id="p{6=|(Y3}KB,m{*M9y;P">
+                                                <field name="VAR">global lista</field>
+                                              </block>
+                                            </value>
+                                            <value name="NUM">
+                                              <block type="math_number" id="(c5?k^aRH.A=7xGV?/s^">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="NUM">
+                                          <block type="math_number" id="iFq45VGo?2B9yuB%NThp">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="math_number" id="/IXYFRs5HWJI@a5;2db*">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="D2h~?EV)p?IJ72v/6Zyf">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_set_get" id="%Bgw6ejm:=kN;wpntVb#">
+                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_ID_FEEDS"></mutation>
+                                <field name="COMPONENT_SELECTOR">Lbl_ID_FEEDS</field>
+                                <field name="PROP">Text</field>
+                                <value name="VALUE">
+                                  <block type="lists_select_item" id="%2yWFcaf^I56qFXihk3T">
+                                    <value name="LIST">
+                                      <block type="lists_select_item" id="H^YP^Ez_K_th4~W+%TgP">
+                                        <value name="LIST">
+                                          <block type="lists_select_item" id="2:fj;Cj1q2ePmVDhL$t[">
+                                            <value name="LIST">
+                                              <block type="lists_select_item" id="SVLb]~`-.|s9PU|SVeZI">
+                                                <value name="LIST">
+                                                  <block type="lists_select_item" id="rd;U{nV4ISh40Ozv{l#u">
+                                                    <value name="LIST">
+                                                      <block type="lexical_variable_get" id="O-}z=n_k}/ms+6@B;58K">
+                                                        <field name="VAR">global lista</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="*=%@y$rf_Ab3,/~2`A4a">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="NUM">
+                                                  <block type="math_number" id="M4%3YGf];oefp2CqeSVR">
+                                                    <field name="NUM">2</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="NUM">
+                                              <block type="math_number" id="*Nfs$x+tV0{Ivv5ImMv.">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="NUM">
+                                          <block type="math_number" id="xL(T%_S)6^%U5rnF1W(l">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="math_number" id="+8XT,oYJm0TRs_efLIJA">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="component_set_get" id="17LMz4+Ft;`9])aUKsA2">
+                                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_DataH_FEEDS"></mutation>
+                                    <field name="COMPONENT_SELECTOR">Lbl_DataH_FEEDS</field>
+                                    <field name="PROP">Text</field>
+                                    <value name="VALUE">
+                                      <block type="lists_select_item" id="e8}-y|q=nL+@*%{e=xXA">
+                                        <value name="LIST">
+                                          <block type="lists_select_item" id="dZz66X})Zb5x$S4a{pzb">
+                                            <value name="LIST">
+                                              <block type="lists_select_item" id="pb!7(u.?0?zY7sT2.zTj">
+                                                <value name="LIST">
+                                                  <block type="lists_select_item" id="JlIj|A5$#}l7{9biDL)y">
+                                                    <value name="LIST">
+                                                      <block type="lists_select_item" id="#3|E{ATSXBfm[B1q/smM">
+                                                        <value name="LIST">
+                                                          <block type="lexical_variable_get" id=".O!?.1Jy4j}oBn~)1wQ[">
+                                                            <field name="VAR">global lista</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="math_number" id="ibL5*N^#XZNEh7125$:P">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="u8y7QoEG+@h)M5/UkkR?">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="NUM">
+                                                  <block type="math_number" id="U::Z-}Rra)6D6W?J;WOo">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="NUM">
+                                              <block type="math_number" id="ZX*xV#wZEOLn%wY`_hjR">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="NUM">
+                                          <block type="math_number" id="Vi]5j}EUD?wKUThB,C@7">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="component_set_get" id="B{_PG;I%2i}5UnbPBdGu">
+                                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Lbl_Temp_FEEDS"></mutation>
+                                        <field name="COMPONENT_SELECTOR">Lbl_Temp_FEEDS</field>
+                                        <field name="PROP">Text</field>
+                                        <value name="VALUE">
+                                          <block type="lists_select_item" id="I8Hd+HiT44!!lC[bjnG=">
+                                            <value name="LIST">
+                                              <block type="lists_select_item" id="dKyk#w.k%P!lMiO6UdU2">
+                                                <value name="LIST">
+                                                  <block type="lists_select_item" id="Eb_,.AKfeM@u8.cTz@%q">
+                                                    <value name="LIST">
+                                                      <block type="lists_select_item" id="SD!n|Z|j.N[M@@z!}SG{">
+                                                        <value name="LIST">
+                                                          <block type="lists_select_item" id="|H=%uNelgtg0ST8tBC]O">
+                                                            <value name="LIST">
+                                                              <block type="lexical_variable_get" id="N/Y|56^(v-n`b7FV%Pfn">
+                                                                <field name="VAR">global lista</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="NUM">
+                                                              <block type="math_number" id="VmWb$w.QU:fE9gm([K7f">
+                                                                <field name="NUM">2</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="math_number" id="tcTz(J!DH1Oo,Yf[XmMh">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="q6zQ]0E3_7Yq;s*0v2Y^">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="NUM">
+                                                  <block type="math_number" id="f]MB)i{ah:;vI:M`zE;K">
+                                                    <field name="NUM">3</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="NUM">
+                                              <block type="math_number" id="20|StRr#nxUnmQ~R%:KD">
+                                                <field name="NUM">2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="*#upMawB?%XNB~R:q~+4">
+                                            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Legenda4"></mutation>
+                                            <field name="COMPONENT_SELECTOR">Legenda4</field>
+                                            <field name="PROP">Text</field>
+                                            <value name="VALUE">
+                                              <block type="lists_select_item" id="QLUS4.{TJ.vjHMRD{N3C">
+                                                <value name="LIST">
+                                                  <block type="lists_select_item" id="O{IrMb1WI}wwPUH3qA%I">
+                                                    <value name="LIST">
+                                                      <block type="lists_select_item" id="(kOYM;[8nC%|i]ZgPt4P">
+                                                        <value name="LIST">
+                                                          <block type="lists_select_item" id="o5B0V~*2S;vbaQxrjhat">
+                                                            <value name="LIST">
+                                                              <block type="lists_select_item" id="4+2nvarq%CRdb@=]S0,(">
+                                                                <value name="LIST">
+                                                                  <block type="lexical_variable_get" id="S-wa$e5we[+~ly3eU3y:">
+                                                                    <field name="VAR">global lista</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="NUM">
+                                                                  <block type="math_number" id="r!5p[R?VoXDgK9.SJ+@y">
+                                                                    <field name="NUM">2</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="NUM">
+                                                              <block type="math_number" id="p=no[hX~Z@#bgeR*)m.v">
+                                                                <field name="NUM">2</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="math_number" id="l@e{u]HD!Z81Cz-HNkW+">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="jh9!2ol=M`l?_.no1Uo9">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="NUM">
+                                                  <block type="math_number" id="n:*ZSWWWyX}jU6(g,Q`t">
+                                                    <field name="NUM">2</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="component_set_get" id="6=;cY}cBOz#)Rs+Kx~Os">
+                                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Legenda5"></mutation>
+                                                <field name="COMPONENT_SELECTOR">Legenda5</field>
+                                                <field name="PROP">Text</field>
+                                                <value name="VALUE">
+                                                  <block type="lists_select_item" id="NP27wfa}UZd?ilvgtzOb">
+                                                    <value name="LIST">
+                                                      <block type="lists_select_item" id="*BmluI#1*V~HlQ`Y!Dzf">
+                                                        <value name="LIST">
+                                                          <block type="lists_select_item" id="f8aMGP;qV%8YIP|t8`H?">
+                                                            <value name="LIST">
+                                                              <block type="lists_select_item" id="DZKzv_{-x`#ZZVs0]Q}_">
+                                                                <value name="LIST">
+                                                                  <block type="lists_select_item" id=",WJ-2uLYh+g;p_D74.EQ">
+                                                                    <value name="LIST">
+                                                                      <block type="lexical_variable_get" id=";:#f0?dkTeFO!5LH,iRs">
+                                                                        <field name="VAR">global lista</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="NUM">
+                                                                      <block type="math_number" id="L233Bi!C|c8#+.ATl7S?">
+                                                                        <field name="NUM">2</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="NUM">
+                                                                  <block type="math_number" id=":8DuwOvfP,w#r8.s_ryF">
+                                                                    <field name="NUM">2</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="NUM">
+                                                              <block type="math_number" id="H!5(~q[}DPH0X0e-RW)V">
+                                                                <field name="NUM">2</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="math_number" id="U~2dHCNL?`GyYB]|@c3+">
+                                                            <field name="NUM">1</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="NUM">
+                                                      <block type="math_number" id="ek-JY{/O#v+VBsx|Kr~:">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="component_set_get" id="wO:B/Q,)r`Rb+wwc}[Bb">
+                                                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="Legenda6"></mutation>
+                                                    <field name="COMPONENT_SELECTOR">Legenda6</field>
+                                                    <field name="PROP">Text</field>
+                                                    <value name="VALUE">
+                                                      <block type="lists_select_item" id="1S)gmTbiJNg`n4X8=5!l">
+                                                        <value name="LIST">
+                                                          <block type="lists_select_item" id="HU:n.g~[7sn`~|Z_NJS:">
+                                                            <value name="LIST">
+                                                              <block type="lists_select_item" id="5jNXkG}IR(-Ts^{qEC`F">
+                                                                <value name="LIST">
+                                                                  <block type="lists_select_item" id="c582nQF+K]Tw28WpU#ab">
+                                                                    <value name="LIST">
+                                                                      <block type="lists_select_item" id="Zwdt(Lj6*+1)`a]QBieR">
+                                                                        <value name="LIST">
+                                                                          <block type="lexical_variable_get" id="0FpZpY9#9OJNM[wNL225">
+                                                                            <field name="VAR">global lista</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="NUM">
+                                                                          <block type="math_number" id="Qj:_J$KR,O2OC/7F[U:E">
+                                                                            <field name="NUM">2</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="NUM">
+                                                                      <block type="math_number" id="0^.V`(@MI(P+g%qf?dvl">
+                                                                        <field name="NUM">2</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="NUM">
+                                                                  <block type="math_number" id="wuNa4x)CY3mo;.1/$S6x">
+                                                                    <field name="NUM">2</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="NUM">
+                                                              <block type="math_number" id="Bh8$kR~lh!NbjB5P@KB=">
+                                                                <field name="NUM">3</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="math_number" id="n.gaV{9Jv_S%M8+O$2,Q">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_set_get" id="ONU;v~(v_36X*1=WLE3y">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="lbl_MENS_VERIFICA_ERRO"></mutation>
+            <field name="COMPONENT_SELECTOR">lbl_MENS_VERIFICA_ERRO</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="V.PYhuZG1_N[wn8KqRTi">
+                <field name="TEXT">Erro</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="184" language-version="26"></yacodeblocks>
+</xml>

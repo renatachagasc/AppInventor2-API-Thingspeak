@@ -1,0 +1,4 @@
+#|
+$JSON
+{"authURL":["ai2.appinventor.mit.edu"],"YaVersion":"184","Source":"Form","Properties":{"$Name":"Screen1","$Type":"Form","$Version":"24","AccentColor":"&H00FFFFFF","AlignHorizontal":"3","AppName":"ProjetoRS","BackgroundColor":"&HFF00C4CC","Title":"Screen1","TitleVisible":"False","Uuid":"0","$Components":[{"$Name":"HorizontalArrangement2","$Type":"HorizontalArrangement","$Version":"3","BackgroundColor":"&H00FFFFFF","Height":"-2","Width":"-2","Uuid":"1165323364"},{"$Name":"btnIniciar","$Type":"Button","$Version":"6","BackgroundColor":"&HFF000000","Height":"-1045","Width":"-1070","Image":"thermal_mon.png","Shape":"2","TextColor":"&HFFFFFFFF","Uuid":"-1756930687"},{"$Name":"HorizontalArrangement1","$Type":"HorizontalArrangement","$Version":"3","BackgroundColor":"&H00FFFFFF","Height":"-2","Width":"-2","Uuid":"1149818584"}]}}
+|#
